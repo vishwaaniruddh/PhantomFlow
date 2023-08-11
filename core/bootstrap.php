@@ -1,4 +1,7 @@
 <?php 
+date_default_timezone_set('Asia/Kolkata');
+
+
 $pdo = Connection::make();
 $query = new QueryBuilder($pdo);
 
