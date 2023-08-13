@@ -4,13 +4,39 @@ use Firebase\JWT\JWT;
 
 class UsersController{
 
+    // public function index(){
+    //     $pdo = Connection::make();
+    //     $query = new QueryBuilder($pdo);
+    //     $sql = "select * from users";
+        
+    //     $result = $pdo->prepare($sql);
+
+    //     $result->execute();
+    //     $result = $result->fetchAll(PDO::FETCH_OBJ);
+    //     var_dump($result);
+    //     return view('users',compact('result'));
+    // }
     public function index(){
         $pdo = Connection::make();
         $query = new QueryBuilder($pdo);
-        $result = $query->selectAll('users');
 
-        return view('users',compact('result'));
+        // Get all users
+        $allUsers = $query->selectAll('users');
+        
+        // Calculate the current page based on the "page" query parameter
+        $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
+
+        // Calculate the number of users to display per page
+        $usersPerPage = 10;
+        $totalUsers = count($allUsers);
+        $offset = ($currentPage - 1) * $usersPerPage;
+
+        // Get the users for the current page
+        $result = array_slice($allUsers, $offset, $usersPerPage);
+
+        return view('users', compact('result', 'totalUsers', 'currentPage', 'usersPerPage'));
     }
+
     public function login(){
         return view('login');
     }

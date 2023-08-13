@@ -40,7 +40,7 @@ class Router {
     protected function requiresAuthentication($uri) {
         // List of routes that require authentication
         $authenticatedRoutes = [
-            '','index', 'about', 'users', 'logout','add_mis'
+            '','index', 'about', 'users', 'logout','add_mis','view_mis'
         ];
 
         return in_array($uri, $authenticatedRoutes);

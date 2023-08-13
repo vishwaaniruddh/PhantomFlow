@@ -136,11 +136,19 @@ $mainmenu = array_unique($mainmenu);
                         
                         ?>
                         <li class="">
-                                    <a href="logout">
-                                        <span class="pcoded-micon"><i class="feather icon-log-out"></i></span>
-                                        <span class="pcoded-mtext">Logout</span>
-                                    </a>
-                                </li>
+                            <a href="users">
+                                <span class="pcoded-micon"><i class="feather icon-log-out"></i></span>
+                                <span class="pcoded-mtext">Users</span>
+                            </a>
+                        </li>
+                    
+
+                    <li class="">
+                            <a href="logout">
+                                <span class="pcoded-micon"><i class="feather icon-log-out"></i></span>
+                                <span class="pcoded-mtext">Logout</span>
+                            </a>
+                        </li>
                                 
                             
                             </ul>
